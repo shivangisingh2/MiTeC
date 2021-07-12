@@ -1,0 +1,134 @@
+html, body {
+
+    background-color: ghostwhite;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#root:not(.withChat) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+#root.withChat {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    height: 100%;
+    margin-top: 20px;
+}
+
+/* video section */
+
+.container {
+    width: calc(100% - 5px);
+    height: 100%;
+    padding-right: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.participant {
+    position: relative;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    display: grid;
+    grid-template-rows: auto 20px;
+}
+.participant div {
+    text-align: center;
+}
+.participant div video {
+    position: relative;
+    background-color: #eee;
+    border: 1px solid black;
+}
+.participant div video:not(.trackZoomed) {
+    position: relative;
+    width: 240px;
+    height: 180px;
+}
+.participant .label {
+    background-color: #ddd;
+    padding: 2px;
+}
+.participantZoomed {
+    width: 100%;
+    height: calc(100% - 5px);
+    grid-template-rows: auto 30px;
+}
+.participantHidden {
+    display: none;
+}
+.trackZoomed {
+    width: 100%;
+    height: 100%;
+}
+.participantZoomed div video:not(.trackZoomed) {
+    display: none;
+}
+.participantHidden div video {
+    display: none;
+}
+.participantHidden .label {
+    display: none;
+}
+.participantZoomed .label {
+    margin-top: 8px;
+}
+/*emoji section*/
+.nameLabel {
+  background-color: #ebebeb;
+  border-style: dotted;
+}
+.emoji {
+  position: absolute;
+  font-size:30px;
+  top: 8px;
+  left: 8px;
+  opacity: 0;
+  transition:all 1s ease;
+}
+.appear{
+   -webkit-transform: scale(1.3);
+   -ms-transform: scale(1.3);
+    transform: scale(1.3);
+    opacity:1;
+    -webkit-transform: rotateZ(-30deg);
+    -ms-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg);
+}
+.emojibuttons {
+  margin: auto;
+  font-size: 20px;
+}
+.emojiPanel {
+    padding-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align:center;
+}
+
+/* chat section */
+
+#root.withChat #chat {
+    width: calc(100% - 10px);
+    display: grid;
+    grid-template-rows: auto 30px;
+    border-left: 1px solid black;
+    padding: 5px;
+}
+#root:not(withChat) #chat {
+    display: none;
+}
+#chat #chat-scroll {
+    overflow: auto;
+}
+#chat #chat-content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1em;
+    max-height: 1px;
+}
+

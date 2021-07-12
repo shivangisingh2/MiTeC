@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+    <style>
+    .button {
+        background-color: #4682B4;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+
+    .button:disabled {
+        opacity: 0.6;
+        cursor : not-allowed;
+    }
+    </style>
+        <title>Meeting Room</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="shortcut icon" href="#">
+    </head>
+    <body>
+        <center>
+        <h1>Meeting Room</h1>
+        <form>
+            <label for="username">Name: </label>
+            <input type="text" name=”username” id="username">
+            <button class="button" id="join_leave">Join Call</button>
+            <button class ="button" id="share_screen" disabled>Share screen</button>
+            <button class="button" id="toggle_chat" disabled>Chat</button>
+        </form>
+        <br>
+        <button class ="button" type="button" onclick="alert('Click on participant to zoom in. Click again to zoom out. Click on Chat to access Room-Chat. Click on share screen and select the screen you want to share. Click on the reactions to send a reaction')">Help!</button>
+        <button class = "button" id="video_on_off">Mute and Stop Video</button>
+        <p id="count">Steps : (1) Please allow camera access. (2) Enter your name and click on 'Join Call'. (3) Allow microphone access</p>
+        <div id="root">
+            <div id="container" class="container">
+                <div id="local" class="participant"><div></div>
+                <div id= "datalocal" class="emoji"></div>
+                <div class="label">Me</div></div>
+                <div class="emojiPanel">
+                    <button id="emoji-eee" class="emojibuttons">&#128513;</button>
+                    <button id="emoji-laugh" class="emojibuttons">&#129315;</button>
+                    <button id="emoji-thumbsup" class="emojibuttons">&#128077;</button>
+                    <button id="emoji-party" class="emojibuttons">&#127881;</button>
+                    <button id="emoji-sad" class="emojibuttons">&#128533;</button>
+                </div>
+                <!-- more participants will be added dynamically here -->
+            </div>
+            <div id="chat">
+                <div id="chat-scroll">
+                    <div id="chat-content">
+                        <!-- chat content will be added dynamically here -->
+                    </div>
+                </div>
+                <input id="chat-input" type="text">
+            </div>
+        </div>
+        <script src="https://media.twiliocdn.com/sdk/js/video/releases/2.3.0/twilio-video.min.js"></script>
+        <script src="https://media.twiliocdn.com/sdk/js/conversations/releases/1.0.0/twilio-conversations.min.js"></script>
+        <script src="{{ url_for('static', filename='app.js') }}"></script>
+    </center></body>
+</html>
