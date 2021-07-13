@@ -32,7 +32,7 @@ MiTeC - Microsoft Teams Clone developed as a part of the Microsoft Engage 2021 P
 
 MiTeC has been deployed on Heroku and can be accessed [here](https://mitec-engage.herokuapp.com)
 
-Once on the website, click on *Take me to the Meeting Room* and follow the instructions to have a wonderful meeting experience
+Once on the website, click on *Take me to the Meeting Room* and follow the instructions to have a wonderful meeting experience. Check out the [Demo Video](https://youtu.be/Hr8ndsltYfM)!
 
 ### Note
 
